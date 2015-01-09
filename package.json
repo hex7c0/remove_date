@@ -1,13 +1,13 @@
 {
   "version": "0.0.1",
-  "name": "remove_data",
-  "description": "remove data header from http response",
+  "name": "remove_date",
+  "description": "remove Date header from http response",
   "keywords": [
-    "data",
+    "date",
     "header"
   ],
   "preferGlobal": false,
-  "homepage": "http://supergiovane.tk/#/remove_data",
+  "homepage": "http://supergiovane.tk/#/remove_date",
   "author": {
     "name": "hex7c0",
     "email": "hex7c0@gmail.com",
@@ -15,10 +15,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hex7c0/remove_data.git"
+    "url": "https://github.com/hex7c0/remove_date.git"
   },
   "bugs": {
-    "url": "https://github.com/hex7c0/remove_data/issues",
+    "url": "https://github.com/hex7c0/remove_date/issues",
     "email": "hex7c0@gmail.com"
   },
   "main": "index.min.js",

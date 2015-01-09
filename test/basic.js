@@ -1,8 +1,8 @@
 'use strict';
 /**
  * @file basic test
- * @module remove_data
- * @package remove_data
+ * @module remove_date
+ * @package remove_date
  * @subpackage test
  * @version 0.0.1
  * @author hex7c0 <hex7c0@gmail.com>
@@ -14,7 +14,7 @@
  */
 // import
 try {
-  var setData = require('..');
+  var setDate = require('..');
   var assert = require('assert');
   var http = require('http');
   var request = require('supertest');
@@ -62,7 +62,7 @@ describe('basic', function() {
 
       app = http.createServer(function(req, res) {
 
-        setData(res);
+        setDate(res);
 
         res.writeHead(200, {
           'Content-Type': 'text/plain'
@@ -90,7 +90,7 @@ describe('basic', function() {
 
       app = http.createServer(function(req, res) {
 
-        setData(res);
+        setDate(res);
         res.sendDate = true;
 
         res.writeHead(200, {
@@ -116,7 +116,7 @@ describe('basic', function() {
 
       app = http.createServer(function(req, res) {
 
-        setData(res);
+        setDate(res);
         Object.defineProperty(res, 'sendDate', {
           configurable: true,
           enumerable: true,
@@ -150,7 +150,7 @@ describe('basic', function() {
 
       app = http.createServer(function(req, res) {
 
-        setData(res, true);
+        setDate(res, true);
         res.setHeader('Date', 'ciao');
 
         res.writeHead(200, {

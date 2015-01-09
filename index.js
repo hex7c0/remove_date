@@ -1,8 +1,8 @@
 'use strict';
 /**
- * @file remove_data main
- * @module remove_data
- * @package remove_data
+ * @file remove_date main
+ * @module remove_date
+ * @package remove_date
  * @subpackage main
  * @version 0.0.1
  * @author hex7c0 <hex7c0@gmail.com>
@@ -16,11 +16,11 @@
 /**
  * remove data header from response
  * 
- * @function setData
+ * @function setDate
  * @param {Object} res - response to client
  * @param {Boolean} [setHeader] - setHeader block
  */
-function setData(res, setHeader) {
+function setDate(res, setHeader) {
 
   // block sendDate
   Object.defineProperty(res, 'sendDate', {
@@ -66,4 +66,4 @@ function setData(res, setHeader) {
 
   return;
 }
-module.exports = setData;
+module.exports = setDate;

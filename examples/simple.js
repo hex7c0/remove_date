@@ -1,8 +1,8 @@
 'use strict';
 /**
  * @file normal example
- * @module remove_data
- * @package remove_data
+ * @module remove_date
+ * @package remove_date
  * @subpackage examples
  * @version 0.0.1
  * @author hex7c0 <hex7c0@gmail.com>
@@ -14,7 +14,7 @@
  */
 // import
 try {
-  var setData = require('..'); // require('remove_data')
+  var setDate = require('..'); // require('remove_date')
   var http = require('http');
 } catch (MODULE_NOT_FOUND) {
   console.error(MODULE_NOT_FOUND);
@@ -22,7 +22,7 @@ try {
 }
 http.createServer(function(req, res) {
 
-  setData(res);
+  setDate(res);
 
   res.writeHead(200, {
     'Content-Type': 'text/plain'

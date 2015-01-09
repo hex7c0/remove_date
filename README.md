@@ -1,31 +1,31 @@
-# [remove_data](http://supergiovane.tk/#/remove_data)
+# [remove_date](http://supergiovane.tk/#/remove_date)
 
-[![NPM version](https://badge.fury.io/js/remove_data.svg)](http://badge.fury.io/js/remove_data)
-[![Build Status](https://travis-ci.org/hex7c0/remove_data.svg)](https://travis-ci.org/hex7c0/remove_data)
-[![Dependency Status](https://david-dm.org/hex7c0/remove_data/status.svg)](https://david-dm.org/hex7c0/remove_data)
+[![NPM version](https://badge.fury.io/js/remove_date.svg)](http://badge.fury.io/js/remove_date)
+[![Build Status](https://travis-ci.org/hex7c0/remove_date.svg)](https://travis-ci.org/hex7c0/remove_date)
+[![Dependency Status](https://david-dm.org/hex7c0/remove_date/status.svg)](https://david-dm.org/hex7c0/remove_date)
 
-Just a simple hack to remove Data header [wiki](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) from http response
+Just a simple hack to remove Date header [wiki](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) from http response
 
 ## Installation
 
 Install through NPM
 
 ```bash
-npm install remove_data
+npm install remove_date
 ```
 or
 ```bash
-git clone git://github.com/hex7c0/remove_data.git
+git clone git://github.com/hex7c0/remove_date.git
 ```
 
 ## API
 
 inside nodejs project
 ```js
-var setData = require('remove_data');
+var setDate = require('remove_date');
 ```
 
-### setData(res,[setHeader])
+### setDate(res,[setHeader])
 
 #### options
 
@@ -34,6 +34,6 @@ var setData = require('remove_data');
 
 ## Examples
 
-Take a look at my [examples](https://github.com/hex7c0/remove_data/tree/master/examples)
+Take a look at my [examples](https://github.com/hex7c0/remove_date/tree/master/examples)
 
 ### [License GPLv3](http://opensource.org/licenses/GPL-3.0)
