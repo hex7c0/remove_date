@@ -1,5 +1,5 @@
 {
-  "version": "0.0.0",
+  "version": "0.0.1",
   "name": "remove_data",
   "description": "remove data header from http response",
   "keywords": [
