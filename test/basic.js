@@ -2,7 +2,6 @@
 /**
  * @file basic test
  * @module remove_date
- * @package remove_date
  * @subpackage test
  * @version 0.0.1
  * @author hex7c0 <hex7c0@gmail.com>
@@ -12,16 +11,10 @@
 /*
  * initialize module
  */
-// import
-try {
-  var setDate = require('..');
-  var assert = require('assert');
-  var http = require('http');
-  var request = require('supertest');
-} catch (MODULE_NOT_FOUND) {
-  console.error(MODULE_NOT_FOUND);
-  process.exit(1);
-}
+var setDate = require('..');
+var assert = require('assert');
+var http = require('http');
+var request = require('supertest');
 
 /*
  * test module
@@ -47,8 +40,7 @@ describe('basic', function() {
 
       request(app).get('/').expect(200).end(function(err, res) {
 
-        if (err)
-          throw err;
+        if (err) throw err;
         assert.notEqual(res.header.date, undefined);
         assert.notEqual(res.headers.date, undefined);
         done();
@@ -75,8 +67,7 @@ describe('basic', function() {
 
       request(app).get('/').expect(200).end(function(err, res) {
 
-        if (err)
-          throw err;
+        if (err) throw err;
         assert.equal(res.header.date, undefined);
         assert.equal(res.headers.date, undefined);
         done();
@@ -104,8 +95,7 @@ describe('basic', function() {
 
       request(app).get('/').expect(200).end(function(err, res) {
 
-        if (err)
-          throw err;
+        if (err) throw err;
         assert.equal(res.header.date, undefined);
         assert.equal(res.headers.date, undefined);
         done();
@@ -133,18 +123,17 @@ describe('basic', function() {
       });
       done();
     });
-    it('shouldn\'t get "Date" header, after `Object.defineProperty`', function(
-                                                                               done) {
+    it('shouldn\'t get "Date" header, after `Object.defineProperty`',
+      function(done) {
 
-      request(app).get('/').expect(200).end(function(err, res) {
+        request(app).get('/').expect(200).end(function(err, res) {
 
-        if (err)
-          throw err;
-        assert.equal(res.header.date, undefined);
-        assert.equal(res.headers.date, undefined);
-        done();
+          if (err) throw err;
+          assert.equal(res.header.date, undefined);
+          assert.equal(res.headers.date, undefined);
+          done();
+        });
       });
-    });
 
     before(function(done) {
 
@@ -164,8 +153,7 @@ describe('basic', function() {
 
       request(app).get('/').expect(200).end(function(err, res) {
 
-        if (err)
-          throw err;
+        if (err) throw err;
         assert.equal(res.header.date, undefined);
         assert.equal(res.headers.date, undefined);
         done();

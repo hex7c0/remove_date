@@ -2,7 +2,6 @@
 /**
  * @file normal example
  * @module remove_date
- * @package remove_date
  * @subpackage examples
  * @version 0.0.1
  * @author hex7c0 <hex7c0@gmail.com>
@@ -13,20 +12,17 @@
  * initialize module
  */
 // import
-try {
-  var setDate = require('..'); // require('remove_date')
-  var http = require('http');
-} catch (MODULE_NOT_FOUND) {
-  console.error(MODULE_NOT_FOUND);
-  process.exit(1);
-}
+var setDate = require('..'); // use require('remove_date') instead
+var http = require('http');
+
 http.createServer(function(req, res) {
 
-  setDate(res);
+  setDate(res); // remove Date header from response
 
   res.writeHead(200, {
     'Content-Type': 'text/plain'
   });
   res.end('Hello World\n');
 }).listen(3000, '127.0.0.1');
+
 console.log('Server running at http://127.0.0.1:3000/');
