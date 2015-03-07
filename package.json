@@ -21,19 +21,22 @@
     "url": "https://github.com/hex7c0/remove_date/issues",
     "email": "hex7c0@gmail.com"
   },
-  "main": "index.min.js",
+  "main": "index.js",
   "dependencies": {
   },
   "devDependencies": {
-    "mocha": "~2.1",
+    "coveralls": "~2.11",
+    "istanbul": "~0.3",
+    "mocha": "~2.1"
     "supertest": "~0.15"
   },
   "engines": {
-    "node": "^0.10"
+    "node": ">=0.10"
   },
   "scripts": {
     "prepublish": "npm prune",
-    "test": "mocha --bail --check-leaks test/"
+    "test": "mocha --bail --check-leaks",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly"
   },
   "license": "GPLv3"
 }
