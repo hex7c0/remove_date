@@ -1,7 +1,7 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "name": "remove_date",
-  "description": "remove Date header from http response",
+  "description": "remove Date header from http(s) response",
   "keywords": [
     "date",
     "header"
