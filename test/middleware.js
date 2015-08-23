@@ -11,15 +11,15 @@
 /*
  * initialize module
  */
-var setDate = require('..');
+var setDate = require('..').setDateMiddleware;
 var assert = require('assert');
-var http = require('http');
+var express = require('express');
 var request = require('supertest');
 
 /*
  * test module
  */
-describe('basic', function() {
+describe('middleware', function() {
 
   var app;
 
@@ -27,12 +27,10 @@ describe('basic', function() {
 
     before(function(done) {
 
-      app = http.createServer(function(req, res) {
+      app = express();
+      app.get('/', function(req, res) {
 
-        res.writeHead(200, {
-          'Content-Type': 'text/plain'
-        });
-        res.end();
+        return res.end();
       });
       done();
     });
@@ -52,14 +50,10 @@ describe('basic', function() {
 
     before(function(done) {
 
-      app = http.createServer(function(req, res) {
+      app = express();
+      app.use(setDate()).get('/', function(req, res) {
 
-        setDate(res);
-
-        res.writeHead(200, {
-          'Content-Type': 'text/plain'
-        });
-        res.end();
+        return res.end();
       });
       done();
     });
@@ -79,15 +73,10 @@ describe('basic', function() {
 
     before(function(done) {
 
-      app = http.createServer(function(req, res) {
+      app = express();
+      app.use(setDate(true)).get('/', function(req, res) {
 
-        setDate(res);
-        res.sendDate = true;
-
-        res.writeHead(200, {
-          'Content-Type': 'text/plain'
-        });
-        res.end();
+        return res.end();
       });
       done();
     });
@@ -104,9 +93,9 @@ describe('basic', function() {
 
     before(function(done) {
 
-      app = http.createServer(function(req, res) {
+      app = express();
+      app.use(setDate(true)).get('/', function(req, res) {
 
-        setDate(res);
         Object.defineProperty(res, 'sendDate', {
           configurable: true,
           enumerable: true,
@@ -115,11 +104,7 @@ describe('basic', function() {
             return true;
           },
         });
-
-        res.writeHead(200, {
-          'Content-Type': 'text/plain'
-        });
-        res.end();
+        return res.end();
       });
       done();
     });
@@ -137,15 +122,11 @@ describe('basic', function() {
 
     before(function(done) {
 
-      app = http.createServer(function(req, res) {
+      app = express();
+      app.use(setDate(true)).get('/', function(req, res) {
 
-        setDate(res, true);
         res.setHeader('Date', 'ciao');
-
-        res.writeHead(200, {
-          'Content-Type': 'text/plain'
-        });
-        res.end();
+        return res.end();
       });
       done();
     });
