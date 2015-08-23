@@ -48,7 +48,7 @@ app.use(setDate()).get('/', function(req, res) {
 }).listen(3000, '127.0.0.1');
 ```
 
-### setDate(res, [setHeader])
+### setDate(res [, setHeader])
 
 #### options
 
