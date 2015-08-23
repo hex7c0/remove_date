@@ -1,6 +1,6 @@
 'use strict';
 /**
- * @file normal example
+ * @file middleware example
  * @module remove_date
  * @subpackage examples
  * @version 0.0.1
@@ -11,16 +11,13 @@
 /*
  * initialize module
  */
-var setDate = require('..'); // use require('remove_date') instead
-var http = require('http');
+var setDate = require('..').setDateMiddleware; // use require('remove_date') instead
+var app = require('express')();
 
-http.createServer(function(req, res) {
+app.disable('x-powered-by'); // remove all useless header
 
-  setDate(res); // remove Date header from response
+app.use(setDate()).get('/', function(req, res) {
 
-  res.writeHead(200, {
-    'Content-Type': 'text/plain'
-  });
   res.end('Hello World\n');
 }).listen(3000, '127.0.0.1');
 

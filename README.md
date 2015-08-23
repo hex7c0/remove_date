@@ -37,11 +37,28 @@ require('http').createServer(function(req, res) {
 }).listen(3000, '127.0.0.1');
 ```
 
+as middleware
+```js
+var setDate = require('remove_date').setDateMiddleware;
+var app = require('express')();
+
+app.use(setDate()).get('/', function(req, res) {
+
+  res.end('Hello World\n');
+}).listen(3000, '127.0.0.1');
+```
+
 ### setDate(res, [setHeader])
 
 #### options
 
- - `res` - **RegExp** response to client *(default "required")*
+ - `res` - **Object** response to client *(default "required")*
+ - `setHeader`- **Boolean** setHeader block *(default "optional")*
+
+### setDateMiddleware([setHeader])
+
+#### options
+
  - `setHeader`- **Boolean** setHeader block *(default "optional")*
 
 ## Examples
