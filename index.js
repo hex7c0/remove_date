@@ -13,13 +13,13 @@
  * functions
  */
 /**
- * remove data header from response
+ * set sendDate property as static setter/getter
  * 
- * @function setDate
+ * @private
+ * @function __dateOverride
  * @param {Object} res - response to client
- * @param {Boolean} [setHeader] - setHeader block
  */
-function setDate(res, setHeader) {
+function __dateOverride(res) {
 
   // block sendDate
   Object.defineProperty(res, 'sendDate', {
@@ -35,34 +35,93 @@ function setDate(res, setHeader) {
     }
   });
 
+  return;
+}
+/**
+ * set header(s) property as static setter/getter
+ * 
+ * @private
+ * @function __headerOverride
+ * @param {Object} res - response to client
+ */
+function __headerOverride(res) {
+
+  res.setHeader('Date', 'date'); // populate headers
+
+  Object.defineProperty(res._headers, 'date', {
+    configurable: false,
+    enumerable: true,
+    get: function() {
+
+      return;
+    },
+    set: function() {
+
+      return;
+    }
+  });
+  Object.defineProperty(res._headerNames, 'date', {
+    configurable: false,
+    enumerable: true,
+    get: function() {
+
+      return;
+    },
+    set: function() {
+
+      return;
+    }
+  });
+
+  return;
+}
+
+/**
+ * remove data header from response as function
+ * 
+ * @public
+ * @function setDate
+ * @param {Object} res - response to client
+ * @param {Boolean} [setHeader] - setHeader block
+ */
+function setDate(res, setHeader) {
+
+  __dateOverride(res);
+
   if (setHeader === true) { // block setHeader
-    res.setHeader('Date', 'date');
-    Object.defineProperty(res._headers, 'date', {
-      configurable: false,
-      enumerable: true,
-      get: function() {
-
-        return;
-      },
-      set: function() {
-
-        return;
-      }
-    });
-    Object.defineProperty(res._headerNames, 'date', {
-      configurable: false,
-      enumerable: true,
-      get: function() {
-
-        return;
-      },
-      set: function() {
-
-        return;
-      }
-    });
+    __headerOverride(res);
   }
 
   return;
 }
 module.exports = setDate;
+
+/**
+ * remove data header from response as middleware. builder
+ * 
+ * @public
+ * @function setDateMiddleware
+ * @param {Boolean} [setHeader] - setHeader block
+ * @return {Function}
+ */
+function setDateMiddleware(setHeader) {
+
+  if (setHeader === true) { // block setHeader
+    return function setDate(req, res, next) {
+
+      __dateOverride(res);
+
+      __headerOverride(res);
+
+      return next();
+    };
+  }
+
+  return function setDate(req, res, next) {
+
+    __dateOverride(res);
+
+    return next();
+  };
+}
+module.exports.setDateMiddleware = setDateMiddleware;
