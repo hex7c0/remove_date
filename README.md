@@ -6,7 +6,8 @@
 [![Dependency Status](https://img.shields.io/david/hex7c0/remove_date.svg)](https://david-dm.org/hex7c0/remove_date)
 [![Coveralls](https://img.shields.io/coveralls/hex7c0/remove_date.svg)](https://coveralls.io/r/hex7c0/remove_date)
 
-Just a simple hack to remove [Date header](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Date) from HTTP(S) response
+Just a simple hack to remove [Date header](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Date) from HTTP(S) response.
+Similar to [remove_connection](https://github.com/hex7c0/remove_connection/)
 
 ## Installation
 
