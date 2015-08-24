@@ -16,7 +16,7 @@ var app = require('express')();
 
 app.disable('x-powered-by'); // remove all useless header
 
-app.use(setDate()).get('/', function(req, res) {
+app.use(setDate(true)).get('/', function(req, res) {
 
   res.end('Hello World\n');
 }).listen(3000, '127.0.0.1');

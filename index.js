@@ -16,15 +16,17 @@
  * set sendDate property as static setter/getter
  * 
  * @private
- * @function __dateOverride
+ * @function __valueOverride
  * @param {Object} res - response to client
  */
-function __dateOverride(res) {
+function __valueOverride(res) {
+
+  // res.sendDate = false; // static setter
 
   // block sendDate
   Object.defineProperty(res, 'sendDate', {
     configurable: false,
-    enumerable: true,
+    enumerable: false, // remove undefined
     get: function() {
 
       return false;
@@ -37,6 +39,7 @@ function __dateOverride(res) {
 
   return;
 }
+
 /**
  * set header(s) property as static setter/getter
  * 
@@ -46,11 +49,11 @@ function __dateOverride(res) {
  */
 function __headerOverride(res) {
 
-  res.setHeader('Date', 'date'); // populate headers
+  res.setHeader('Date', null); // populate headers
 
-  Object.defineProperty(res._headers, 'date', {
+  Object.defineProperty(res._headers, 'date', { // value
     configurable: false,
-    enumerable: true,
+    enumerable: false, // remove undefined
     get: function() {
 
       return;
@@ -60,12 +63,24 @@ function __headerOverride(res) {
       return;
     }
   });
-  Object.defineProperty(res._headerNames, 'date', {
+  Object.defineProperty(res._headerNames, 'date', { // key
     configurable: false,
-    enumerable: true,
+    enumerable: false, // remove undefined
     get: function() {
 
       return;
+    },
+    set: function() {
+
+      return;
+    }
+  });
+  Object.defineProperty(res._removedHeader, 'date', { // flag
+    configurable: false,
+    enumerable: false, // remove undefined
+    get: function() {
+
+      return true; // force remove this header
     },
     set: function() {
 
@@ -77,7 +92,7 @@ function __headerOverride(res) {
 }
 
 /**
- * remove data header from response as function
+ * remove date header from response as function
  * 
  * @public
  * @function setDate
@@ -86,7 +101,7 @@ function __headerOverride(res) {
  */
 function setDate(res, setHeader) {
 
-  __dateOverride(res);
+  __valueOverride(res);
 
   if (setHeader === true) { // block setHeader
     __headerOverride(res);
@@ -97,7 +112,7 @@ function setDate(res, setHeader) {
 module.exports = setDate;
 
 /**
- * remove data header from response as middleware. builder
+ * remove date header from response as middleware. builder
  * 
  * @public
  * @function setDateMiddleware
@@ -109,7 +124,7 @@ function setDateMiddleware(setHeader) {
   if (setHeader === true) { // block setHeader
     return function setDate(req, res, next) {
 
-      __dateOverride(res);
+      __valueOverride(res);
 
       __headerOverride(res);
 
@@ -119,7 +134,7 @@ function setDateMiddleware(setHeader) {
 
   return function setDate(req, res, next) {
 
-    __dateOverride(res);
+    __valueOverride(res);
 
     return next();
   };

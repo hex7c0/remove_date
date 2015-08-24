@@ -30,7 +30,7 @@ describe('middleware', function() {
       app = express();
       app.get('/', function(req, res) {
 
-        return res.end();
+        res.end();
       });
       done();
     });
@@ -39,6 +39,7 @@ describe('middleware', function() {
       request(app).get('/').expect(200).end(function(err, res) {
 
         assert.equal(err, null);
+        assert.equal(res.header['undefined'], undefined);
         assert.notEqual(res.header.date, undefined);
         assert.notEqual(res.headers.date, undefined);
         done();
@@ -53,7 +54,7 @@ describe('middleware', function() {
       app = express();
       app.use(setDate()).get('/', function(req, res) {
 
-        return res.end();
+        res.end();
       });
       done();
     });
@@ -62,6 +63,7 @@ describe('middleware', function() {
       request(app).get('/').expect(200).end(function(err, res) {
 
         assert.equal(err, null);
+        assert.equal(res.header['undefined'], undefined);
         assert.equal(res.header.date, undefined);
         assert.equal(res.headers.date, undefined);
         done();
@@ -76,7 +78,7 @@ describe('middleware', function() {
       app = express();
       app.use(setDate(true)).get('/', function(req, res) {
 
-        return res.end();
+        res.end();
       });
       done();
     });
@@ -85,6 +87,7 @@ describe('middleware', function() {
       request(app).get('/').expect(200).end(function(err, res) {
 
         assert.equal(err, null);
+        assert.equal(res.header['undefined'], undefined);
         assert.equal(res.header.date, undefined);
         assert.equal(res.headers.date, undefined);
         done();
@@ -104,7 +107,7 @@ describe('middleware', function() {
             return true;
           },
         });
-        return res.end();
+        res.end();
       });
       done();
     });
@@ -114,6 +117,7 @@ describe('middleware', function() {
         request(app).get('/').expect(200).end(function(err, res) {
 
           assert.equal(err, null);
+          assert.equal(res.header['undefined'], undefined);
           assert.equal(res.header.date, undefined);
           assert.equal(res.headers.date, undefined);
           done();
@@ -126,7 +130,7 @@ describe('middleware', function() {
       app.use(setDate(true)).get('/', function(req, res) {
 
         res.setHeader('Date', 'ciao');
-        return res.end();
+        res.end();
       });
       done();
     });
@@ -135,6 +139,7 @@ describe('middleware', function() {
       request(app).get('/').expect(200).end(function(err, res) {
 
         assert.equal(err, null);
+        assert.equal(res.header['undefined'], undefined);
         assert.equal(res.header.date, undefined);
         assert.equal(res.headers.date, undefined);
         done();
