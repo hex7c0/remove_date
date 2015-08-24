@@ -75,18 +75,20 @@ function __headerOverride(res) {
       return;
     }
   });
-  // Object.defineProperty(res._removedHeader, 'date', { // flag
-  // configurable: false,
-  // enumerable: false, // remove undefined
-  // get: function() {
-  //
-  // return true; // force remove this header
-  // },
-  // set: function() {
-  //
-  // return;
-  // }
-  // });
+  if (res._removedHeader !== undefined) { // node > 0.10
+    Object.defineProperty(res._removedHeader, 'date', { // flag
+      configurable: false,
+      enumerable: false, // remove undefined
+      get: function() {
+
+        return true; // force remove this header
+      },
+      set: function() {
+
+        return;
+      }
+    });
+  }
 
   return;
 }
