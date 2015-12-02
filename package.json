@@ -1,5 +1,5 @@
 {
-  "version": "0.2.1",
+  "version": "0.2.2",
   "name": "remove_date",
   "description": "remove Date header from http(s) response",
   "keywords": [
@@ -7,7 +7,7 @@
     "header"
   ],
   "preferGlobal": false,
-  "homepage": "http://supergiovane.tk/#/remove_date",
+  "homepage": "https://github.com/hex7c0/remove_date",
   "author": {
     "name": "hex7c0",
     "email": "hex7c0@gmail.com",

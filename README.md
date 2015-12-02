@@ -1,4 +1,4 @@
-# [remove_date](http://supergiovane.tk/#/remove_date)
+# [remove_date](https://github.com/hex7c0/remove_date)
 
 [![NPM version](https://img.shields.io/npm/v/remove_date.svg)](https://www.npmjs.com/package/remove_date)
 [![Linux Status](https://img.shields.io/travis/hex7c0/remove_date.svg?label=linux)](https://travis-ci.org/hex7c0/remove_date)
