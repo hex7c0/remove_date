@@ -38,7 +38,7 @@ describe('middleware', function() {
 
       request(app).get('/').expect(200).end(function(err, res) {
 
-        assert.equal(err, null);
+        assert.ifError(err);
         assert.equal(res.header['undefined'], undefined);
         assert.notEqual(res.header.date, undefined);
         assert.notEqual(res.headers.date, undefined);
@@ -62,7 +62,7 @@ describe('middleware', function() {
 
       request(app).get('/').expect(200).end(function(err, res) {
 
-        assert.equal(err, null);
+        assert.ifError(err);
         assert.equal(res.header['undefined'], undefined);
         assert.equal(res.header.date, undefined);
         assert.equal(res.headers.date, undefined);
@@ -86,7 +86,7 @@ describe('middleware', function() {
 
       request(app).get('/').expect(200).end(function(err, res) {
 
-        assert.equal(err, null);
+        assert.ifError(err);
         assert.equal(res.header['undefined'], undefined);
         assert.equal(res.header.date, undefined);
         assert.equal(res.headers.date, undefined);
@@ -116,7 +116,7 @@ describe('middleware', function() {
 
         request(app).get('/').expect(200).end(function(err, res) {
 
-          assert.equal(err, null);
+          assert.ifError(err);
           assert.equal(res.header['undefined'], undefined);
           assert.equal(res.header.date, undefined);
           assert.equal(res.headers.date, undefined);
@@ -138,7 +138,7 @@ describe('middleware', function() {
 
       request(app).get('/').expect(200).end(function(err, res) {
 
-        assert.equal(err, null);
+        assert.ifError(err);
         assert.equal(res.header['undefined'], undefined);
         assert.equal(res.header.date, undefined);
         assert.equal(res.headers.date, undefined);
