@@ -1,7 +1,7 @@
 # [remove_date](https://github.com/hex7c0/remove_date)
 
 [![NPM version](https://img.shields.io/npm/v/remove_date.svg)](https://www.npmjs.com/package/remove_date)
-[![Linux Status](https://img.shields.io/travis/hex7c0/remove_date.svg?label=linux)](https://travis-ci.org/hex7c0/remove_date)
+[![Linux Status](https://img.shields.io/travis/hex7c0/remove_date.svg?label=linux-osx)](https://travis-ci.org/hex7c0/remove_date)
 [![Windows Status](https://img.shields.io/appveyor/ci/hex7c0/remove_date.svg?label=windows)](https://ci.appveyor.com/project/hex7c0/remove_date)
 [![Dependency Status](https://img.shields.io/david/hex7c0/remove_date.svg)](https://david-dm.org/hex7c0/remove_date)
 [![Coveralls](https://img.shields.io/coveralls/hex7c0/remove_date.svg)](https://coveralls.io/r/hex7c0/remove_date)
